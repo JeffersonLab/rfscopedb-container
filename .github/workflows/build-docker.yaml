@@ -1,0 +1,15 @@
+name: Build and Publish image to DockerHub
+on:
+  workflow_dispatch:
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build image
+        run: docker build . -t jeffersonlab/rfscopedb:$GITHUB_REF_NAME
+      - name: push image to dockerhub
+        run: |
+          docker push jeffersonlab/rfscopedb:$GITHUB_REF_NAME
