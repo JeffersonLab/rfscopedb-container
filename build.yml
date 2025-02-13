@@ -1,0 +1,8 @@
+services:
+  rfscopedb:
+    extends:
+      file: docker-compose.yml
+      service: rfscopedb
+    build:
+      context: .
+      dockerfile: Dockerfile

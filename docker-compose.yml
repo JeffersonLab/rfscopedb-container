@@ -1,0 +1,8 @@
+services:
+  rfscopedb:
+    hostname: rfscopedb
+    container_name: rfscopedb
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: password

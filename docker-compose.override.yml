@@ -1,0 +1,3 @@
+services:
+  rfscopedb:
+    image: jeffersonlab/rfscopedb:0.2.0
