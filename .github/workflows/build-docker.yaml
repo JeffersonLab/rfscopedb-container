@@ -21,9 +21,9 @@ jobs:
       - 
         name: Checkout
         uses: actions/checkout@v4
-      - 
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      # - 
+      #   name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v3
       - 
         name: Docker Metadata
         id: meta
@@ -45,8 +45,9 @@ jobs:
         name: Build and Push
         uses: docker/build-push-action@v6
         with:
-          build-args: CUSTOM_CRT_URL=http://pki.jlab.org/JLabCA.crt
           push: true
+          build-args: |
+            CUSTOM_CRT_URL=http://pki.jlab.org/JLabCA.crt
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
                 
