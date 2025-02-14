@@ -31,8 +31,10 @@ jobs:
         with:
           # Don't use project name since it has the '-container'.  Dockerhub JLab
           # namespace is annoyingly different that GitHub's so we can't use that.
-          images: jeffersonlab/rfscopedb
-          tags: type=semver,pattern={{version}}
+          images: |
+            jeffersonlab/rfscopedb
+          tags: |
+            type=semver,pattern={{version}}
       - 
         name: Login to docker
         uses: docker/login-action@v3
