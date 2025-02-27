@@ -15,6 +15,7 @@ CREATE TABLE scan
 (
     sid            INT AUTO_INCREMENT,
     scan_start_utc DATETIME(6) NOT NULL,
+    scan_end_utc DATETIME(6) NOT NULL,
     PRIMARY KEY (sid)
 );
 CREATE INDEX scan_start_index ON scan (scan_start_utc);
@@ -38,7 +39,7 @@ CREATE TABLE waveform_adata
 (
     wadid int AUTO_INCREMENT,
     wid   int,
-    process  varchar(32) NOT NULL, # Name of the array (raw, frequencies, power_spectrum)
+    name  varchar(32) NOT NULL, # Name of the array (raw, frequencies, power_spectrum)
     data  JSON        NOT NULL, # Array data in a json object
     PRIMARY KEY (wadid),
     FOREIGN KEY (wid) REFERENCES waveform (wid)
