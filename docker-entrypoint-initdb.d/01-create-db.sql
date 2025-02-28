@@ -19,6 +19,8 @@ CREATE TABLE scan
     PRIMARY KEY (sid)
 );
 CREATE INDEX scan_start_index ON scan (scan_start_utc);
+CREATE INDEX scan_end_index ON scan (scan_end_utc);
+
 
 CREATE TABLE waveform
 (
@@ -46,7 +48,7 @@ CREATE TABLE waveform_adata
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
-CREATE INDEX wad_process_index on waveform_adata (process);
+CREATE INDEX wad_name_index on waveform_adata (name);
 
 CREATE TABLE waveform_sdata
 (
