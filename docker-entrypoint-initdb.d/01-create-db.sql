@@ -47,7 +47,7 @@ CREATE TABLE waveform_adata
     FOREIGN KEY (wid) REFERENCES waveform (wid)
         ON DELETE CASCADE
         ON UPDATE CASCADE
-);
+) ENGINE=InnoDB ROW_FORMAT=COMPRESSED;
 CREATE INDEX wad_name_index on waveform_adata (name);
 
 CREATE TABLE waveform_sdata
