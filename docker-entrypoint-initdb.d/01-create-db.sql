@@ -1,7 +1,9 @@
 # Create the database and users
 CREATE DATABASE scope_waveforms;
 CREATE USER 'scope_owner'@'%' IDENTIFIED BY 'password';
+CREATE USER 'scope_owner'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'scope_rw'@'%' IDENTIFIED BY 'password';
+CREATE USER 'scope_rw'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON scope_waveforms.* TO 'scope_owner';
 GRANT SELECT, INSERT ON scope_waveforms.* TO 'scope_rw';
 FLUSH PRIVILEGES;
