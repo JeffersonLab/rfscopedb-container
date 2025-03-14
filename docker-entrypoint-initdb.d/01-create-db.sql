@@ -4,8 +4,11 @@ CREATE USER 'scope_owner'@'%' IDENTIFIED BY 'password';
 CREATE USER 'scope_owner'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'scope_rw'@'%' IDENTIFIED BY 'password';
 CREATE USER 'scope_rw'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'scope_ro'@'%' IDENTIFIED BY 'password';
+CREATE USER 'scope_ro'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON scope_waveforms.* TO 'scope_owner';
 GRANT SELECT, INSERT ON scope_waveforms.* TO 'scope_rw';
+GRANT SELECT ON scope_waveforms.* TO 'scope_ro';
 FLUSH PRIVILEGES;
 
 # Create the tables
